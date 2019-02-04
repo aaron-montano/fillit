@@ -6,7 +6,7 @@
 #    By: amontano <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/05/25 19:46:49 by amontano          #+#    #+#              #
-#    Updated: 2018/05/25 20:08:46 by amontano         ###   ########.fr        #
+#    Updated: 2019/02/04 02:50:14 by amontano         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ OBJ = $(SRC:.c=.o)
 SRC_PATH = src/
 SRC_POS = $(addprefix $(SRC_PATH), $(SRC))
 INC = -I includes/fillit.h
-LIBFT = src/libft/libft.a
+LIBFT = libft/libft.a
 CC = gcc
 FLAGS = -Wall -Wextra -Werror
 
@@ -38,15 +38,15 @@ $(OBJ): $(LIBFT)
 	$(CC) $(FLAGS) -c $(SRC_POS)
 
 $(LIBFT):
-	make -C ./src/libft
+	make -C libft
 
 clean:
 	rm -f $(OBJ)
-		make clean -C src/libft
+		make clean -C libft
 
 fclean: clean
 	rm -f $(NAME)
-		make fclean -C src/libft
+		make fclean -C libft
 
 re: fclean all
 
